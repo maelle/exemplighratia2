@@ -32,7 +32,7 @@ gh_organizations <- function(since = 1) {
     httr2::req_retry(max_tries = 3, max_seconds = 120) %>%
     httr2::req_perform()
 
-  httr2::resp_check_status(response)
+  httr2::resp_check_status(response, info = "Oops, try again later?")
 
   content <- httr2::resp_body_json(response)
 
